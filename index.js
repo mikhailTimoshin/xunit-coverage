@@ -1,9 +1,9 @@
 const printer = require('./lib/printer/printLib')
 const matcher = require('./lib/matcher/matchLib')
 
-const runner = (path = './', exName = '.js') => {
+const runner = (path = './', exName = '.js', specName = '.spec.js') => {
   try {
-    const lists = matcher.match(path, exName)
+    const lists = matcher.match(path, exName, specName)
     const res = matcher.response(lists)
     for (let item of res.success) {
       printer.success(`${lists.specs.dict[item]} - has a coverage`)
@@ -23,4 +23,4 @@ const runner = (path = './', exName = '.js') => {
     printer.error(e.message)
   }
 }
-runner(process.argv[2], process.argv[3])
+runner(process.argv[2], process.argv[3], process.argv[4])
