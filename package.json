@@ -1,0 +1,16 @@
+{
+  "name": "xunit-coverage",
+  "version": "1.0.0",
+  "description": "Library for chek test coverage",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikhailTimoshin/xunit-coverage.git"
+  },
+  "author": "Mikhail Timoshin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mikhailTimoshin/xunit-coverage/issues"
+  },
+  "homepage": "https://github.com/mikhailTimoshin/xunit-coverage"
+}
