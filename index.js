@@ -5,12 +5,20 @@ const runner = (path = './', exName = '.js', specName = '.spec.js') => {
   try {
     const lists = matcher.match(path, exName, specName)
     const res = matcher.response(lists)
-    for (let item of res.success) {
-      printer.success(`${lists.specs.dict[item]} - has a coverage`)
+    if (res.success.length > 0) {
+      printer.success(` Has a coverage`)
+      for (let item of res.success) {
+        printer.check(`${lists.specs.dict[item]}`)
+      }
     }
-    for (let item of res.failure) {
-      printer.warning(`${lists.sources.dict[item]} - dont has a coverage file`)
+
+    if (res.failure.length > 0) {
+      printer.warning(`Dont has a coverage`)
+      for (let item of res.failure) {
+        printer.uncheck(`${lists.sources.dict[item]}`)
+      }
     }
+
     
     if (res.failure.length !== 0) {
       throw new Error(`${res.failure.length} files has not specification`)
